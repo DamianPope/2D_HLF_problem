@@ -140,7 +140,7 @@ def circuit():
 z = circuit()
 
 #
-#The code below verifies that answer z defines the hidden linear function.
+#The code below verifies that z is actually part of the hidden linear function (2 z^{T} x) mod 4
 #
 
 #function that converts the decimal integer i into an equivalent string of bits
