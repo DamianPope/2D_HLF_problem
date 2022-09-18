@@ -238,9 +238,9 @@ for i in range(2**n):
     #calculate q(x(i)) using the quadratic form & store it in the list q
     q.append(calculate_q_using_quadratic_form(i))
 
-	#
-	#do a preliminary check to see if x(i) *might* be an element of the script L_{q} subspace
-	#
+    #
+    #do a preliminary check to see if x(i) *might* be an element of the script L_{q} subspace
+    #
 
     #potentialElementsOfScriptLSubspaceIndices is a list that stores the indices of each x that *might* be a member of the script L_{q} subspace because q(x) = 0 or 2
     if q[i] == 0 or q[i] == 2:
