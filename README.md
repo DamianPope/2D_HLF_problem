@@ -9,4 +9,4 @@ It involves finding a simplifying linear function that's "hidden" within a more 
 
 The paper proves that the quantum circuit solves the problem more efficiently than the best possible classical circuit. This proves the existence of quantum advantage for this problem.
 
-Note that the code uses Xanadu's Pennylane QML libary: https://pennylane.ai/
+The code in this repository uses Xanadu's Pennylane QML library: https://pennylane.ai/ and IBM's Qiskit SDK: https://qiskit.org/
