@@ -174,7 +174,7 @@ def calculate_inner_product_between_z_and_x(k):
     '''Calculates the value of z^{T} x in the hidden linear function q(x) = (2 z^{T} x) mod 4
     
     Arg: 
-        k (int): an integer that specifies that the x vector used is the k^{th} x vector
+        k (int): an integer that specifies the x vector used in the calculation
 
     Returns:
         temp (int): the value of z^{T} x
