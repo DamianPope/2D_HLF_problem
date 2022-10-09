@@ -140,7 +140,7 @@ def circuit():
     return qml.sample(wires=range(0,n))
    
 
-#run the circuit & to find a value of z
+#run the circuit & find a value of z
 z = circuit()
 
 #
