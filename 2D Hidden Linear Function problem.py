@@ -9,7 +9,7 @@ Code that implements the quantum circuit in:
 
 The quantum circuit solves the 2D Hidden Linear Function problem using a *constant* depth circuit.
 Classically, we need a circuit whose depth scales *logarithmically* with the number of bits that the function acts on.
-Note that the problem is a non-oracular version of the Bernstein-Vazirani problem.
+Note that the quantum circuit implements a non-oracular version of the Bernstein-Vazirani algorithm.
 
 Why is the quantum circuit significant? It highlights the existence of quantum advantage for the problem. Note that, as the authors say,:
 1. the circuit is concrete and so the quantum advantange exists for a concrete, physically realizable circuit. It is *not* relative to an abstract oracle.
@@ -37,7 +37,7 @@ b = [1,1,0,1]
 
 
 #define n, the number of bits that the quadratic form acts on
-n =len(b)
+n = len(b)
 
 N = int(pow(n,0.5))
 
@@ -77,7 +77,11 @@ print("A matrix=",A)
 
 @qml.qnode(dev)
 def circuit():                       
-   
+    '''Specifies the quantum circuit
+    Arg: none
+    Returns: The result of measuring all the qubits in the computational basis 
+    '''
+
     #implement Hadamards on the data register
     for i in range(n):
         qml.Hadamard(wires=i)
@@ -143,8 +147,16 @@ z = circuit()
 #The code below verifies that z is actually part of the hidden linear function that equals q
 #
 
-#function that converts the decimal integer i into an equivalent string of bits
 def convert_to_binary_string(i):
+    '''Converts the decimal integer i into an equivalent string of bits
+    
+    Arg: 
+        i (int): the integer that we want to convert into a string
+
+    Returns:
+        tempTwo (str): the bit string that's equivalent to i 
+    '''
+
     temp = bin(i)
 
     #remove the leading ‘0b’ at the start of the string
@@ -158,8 +170,16 @@ def convert_to_binary_string(i):
     return tempTwo
 
 
-#funcion that calculates the value of z^{T} x in the hidden linear function q(x) = (2 z^{T} x) mod 4
 def calculate_inner_product_between_z_and_x(k):
+    '''Calculates the value of z^{T} x in the hidden linear function q(x) = (2 z^{T} x) mod 4
+    
+    Arg: 
+        k (int): an integer that specifies that the x vector used is the k^{th} x vector
+
+    Returns:
+        temp (int): the value of z^{T} x
+    '''    	
+	
     temp = 0
 
     for i in range(n):
@@ -168,8 +188,15 @@ def calculate_inner_product_between_z_and_x(k):
     return temp
 
 
-#function that adds two x vectors (a and b) together in a bitwise fashion, modulo 2
 def calculateBitwiseAdditionModulo2(a,b):
+    '''Adds two x vectors together in a bitwise fashion, modulo 2
+    
+    Args: 
+        a,b (int): indices that specify the x vectors that are added together
+
+    Returns:
+        tempString (str): bitwise sum of x_{a} & x_{b}, modulo 2
+    '''	
     
     #initialize tempString to the null string
     tempString = ""
@@ -179,10 +206,15 @@ def calculateBitwiseAdditionModulo2(a,b):
     return tempString
 
 
-#function that calculates q for a given x vector (specified by i) using the quadratic form
 def calculate_q_using_quadratic_form(i):
-#i defines the i^th element of {x}
-#That is, i has a binary representation that’s equal to x[i]
+    '''Calculates q for a given x vector (specified by i) using the quadratic form
+    
+    Arg: 
+        i (int): specifies the i^{th} x vector that's used as the argument in q(x)
+
+    Returns:
+        (int) the value of q(x_{i})
+    '''
     quadratic_term = 0
     linear_term = 0
 
@@ -195,8 +227,17 @@ def calculate_q_using_quadratic_form(i):
 	    
     return ((2*quadratic_term + linear_term)%4)
 
-#function that returns the indices of the x values that a members of the subspace script L_{q}
-def findMembersOfScriptLsubspace(potentialIndicesList):    
+
+def findMembersOfScriptLsubspace(potentialIndicesList):   
+    '''Finds the indices of the x values that are members of the subspace script L_{q}
+    
+    Arg: 
+        potentialIndicesList (list(int)): list of the indices of all the x vectors that *might* be members of script L_{q}
+
+    Returns:
+        membersOfScriptLsubspace (list(int)): list of the indices of all the x vectors in script L_{q}
+    '''	
+	
     #initialize list that contains members of script L_{q}
     membersOfScriptLsubspace = []
     
