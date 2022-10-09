@@ -79,7 +79,7 @@ print("A matrix=",A)
 def circuit():                       
     '''Specifies the quantum circuit
     Arg: none
-    Returns: The result of measuring all the qubits in the computational basis 
+    Returns: The result of measuring all qubits in the computational basis 
     '''
 
     #implement Hadamards on the data register
@@ -151,7 +151,7 @@ def convert_to_binary_string(i):
     '''Converts the decimal integer i into an equivalent string of bits
     
     Arg: 
-        i (int): the integer that we want to convert into a string
+        i (int): the integer that we want to convert into a bit string
 
     Returns:
         tempTwo (str): the bit string that's equivalent to i 
