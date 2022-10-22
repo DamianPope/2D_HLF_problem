@@ -27,10 +27,10 @@ The vector b is a list of a certain number of bits.
 NOTE: The length of b must be a square number (e.g., 4, 9, 16 etc.) as it's the square of the integer parameter N.
 You can change the value of b below to something else to implement a different quadratic form.
 """
-b = [1,1,0,1]
+b = [1,0,0,1]
 
 #Below is a sample b vector you could use for the n=9 case (3x3 grid graph)
-#b = [0,0,1,0,1,0,1,0,1] 
+#b = [0,0,1,0,0,1,1,1,1] 
 
 #Below is a sample b vector you could use for the n=16 case (4x4 grid graph)
 #b = [0,0,1,1,1,0,1,1,0,1,1,1,0,1,0,1] 
@@ -48,7 +48,7 @@ A = [[0]*n for i in range(n)]
 
 #generate A
 for K in range(n):
-    for L in range(n):
+    for L in range(K+1,n):
         
         #For each matrix element, calculate which two vertices in the associated NxN grid graph that the element is associated with.
         #The first argument of A corresponds to one of the two vertices. The second argument corresponds to the other vertex.
