@@ -24,9 +24,9 @@ from qiskit import QuantumCircuit, execute, Aer, QuantumRegister,ClassicalRegist
 import numpy as np
 
 #sample b vector for n = 4 case
-#b = [1,1,0,1]
+#b = [1,0,0,1]
 
-b = [1,1,1,1,0,0,0,0,0]
+b = [0,0,1,0,0,1,1,1,1]
 
 #sample b vector for n = 16 case
 #b = [0,0,0,0,1,0,0,1,1,0,0,0,0,1,1,0]
@@ -41,7 +41,7 @@ A = [[0]*n for i in range(n)]
 
 #generate A
 for K in range(n):
-    for L in range(n):
+    for L in range(K+1,n):
         #For each matrix element, calculate which two vertices in the associated NxN grid graph that the element is associated with.
         #The first argument of A corresponds to one of the two vertices. The second argument corresponds to the other vertex.
         firstGridColumn =  K % N
