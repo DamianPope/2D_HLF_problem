@@ -39,7 +39,7 @@ A = [[0]*n for i in range(n)]
 
 #generate A
 for K in range(n):
-    for L in range(n):
+    for L in range(K+1,n):
         #for each matrix element, calculate which two vertices in the NxN grid graph that the matrix element is associated with.
         #The first argument of A corresponds to one of the two vertices. The second argument corresponds to the other vertex.
         firstGridColumn =  K % N
