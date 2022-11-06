@@ -88,30 +88,29 @@ for i in range(n):
 for gridRow in range(N):
     #don't include the rightmost grid column as there are no vertices to the right of it to create edges to
     for gridColumn in range(0,N-1):    
-        #for EVEN rows of the grid graph, execute CZ gates in all the EVEN columns (left vertices of horizontal edges)
-        #for ODD rows of the grid graph, execute CZ gates in all the ODD columns (left vertices of horizontal edges)
-        if ((gridRow%2 == 0 and gridColumn%2==0) or (gridRow%2 == 1 and gridColumn%2==1)):
+        #execute CZ gates in all the EVEN columns (left vertices of horizontal edges)
+        if gridColumn%2==0:
             circuit.cz(gridColumn+gridRow*N,gridColumn+gridRow*N+1)
 
 #the gates in SECOND layer of the CZ gates
 
 for gridRow in range(N):
     for gridColumn in range(0,N-1):            
-        if ((gridRow%2 == 0 and gridColumn%2==1) or (gridRow%2 == 1 and gridColumn%2==0)):
+        if gridColumn%2==1:
             circuit.cz(gridColumn+gridRow*N,gridColumn+gridRow*N+1)    
 
 #the gates in THIRD layer of the CZ gates
 
 for gridColumn in range(N):
     for gridRow in range(0,N-1):
-        if ((gridColumn%2 == 0 and gridRow%2==0) or (gridColumn%2 == 1 and gridRow%2==1)):
+        if gridRow%2==0:
             circuit.cz(gridColumn+gridRow*N,gridColumn+(gridRow+1)*N)
 
 #the gates in FOURTH layer of the CZ gates
 
 for gridColumn in range(N):
     for gridRow in range(0,N-1):    
-        if ((gridColumn%2 == 0 and gridRow%2==1) or (gridColumn%2 == 1 and gridRow%2==0)):     
+        if gridRow%2==1:     
             circuit.cz(gridColumn+gridRow*N,gridColumn+(gridRow+1)*N)
 
 #S gates
