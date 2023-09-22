@@ -9,7 +9,7 @@ It involves finding a simplifying linear function that's "hidden" within a more 
 
 The paper proves that the quantum circuit solves the problem more efficiently than the best possible classical circuit. This proves the existence of quantum advantage for this problem.
 
-The code in this repository uses Xanadu's Pennylane QML library: https://pennylane.ai/ and IBM's Qiskit SDK: https://qiskit.org/
+The code in this repository uses Xanadu's Pennylane QML library: https://pennylane.ai/, IBM's Qiskit SDK: https://qiskit.org/, Quantinuum's TKET SDK: https://www.quantinuum.com/developers/tket, and Google's Cirq software library: https://quantumai.google/cirq
 
 After I had written the code, I learnt of closely related code on the same problem for [Qiskit](https://qiskit.org/documentation/stubs/qiskit.circuit.library.HiddenLinearFunction.html?highlight=hiddenlinearfunction#qiskit.circuit.library.HiddenLinearFunction) & [Cirq](https://github.com/fedimser/quant_comp/blob/master/2D%20Hidden%20Linear%20Function.ipynb).
 
